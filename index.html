@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include the TinyMCE library -->
+  <script src="https://cdn.tiny.cloud/1/<YOUR_API_KEY>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    // Initialize TinyMCE
+    tinymce.init({
+      selector: '#message',
+      height: 500, // Set the desired height of the editor
+      menubar: false,
+      plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table paste code help wordcount'
+      ],
+      toolbar: 'undo redo | formatselect | bold italic backcolor | \
+                alignleft aligncenter alignright alignjustify | \
+                bullist numlist outdent indent | removeformat | help'
+    });
+  </script>
+</head>
+<body>
+  <form action="mailer.php" method="post">
+    <!-- Replace the textarea with TinyMCE editor -->
+    <textarea id="message" name="message"></textarea>
+
+    <!-- Other form fields -->
+    <input type="text" name="r_email" placeholder="Recipient Email">
+    <input type="text" name="subject" placeholder="Subject">
+    <input type="text" name="s_name" placeholder="Sender Name">
+    <input type="email" name="s_email" placeholder="Sender Email">
+
+    <!-- Submit button -->
+    <input type="submit" value="Send Email">
+  </form>
+</body>
+</html>
